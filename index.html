@@ -9,9 +9,35 @@
     <meta property="og:description" content="Enterprise web scraping, DBKL permit tracking, lead quality scoring, and automated daily alerts for commercial office fit-outs and renovation sales in Kuala Lumpur, Malaysia." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      // Single Page Application redirect receiver for GitHub Pages
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+        // Normalize trailing slash for GitHub Pages repo subpath
+        if (location.hostname.endsWith('github.io') && !location.pathname.endsWith('/') && !location.pathname.split('/').pop().includes('.')) {
+          location.replace(location.pathname + '/' + location.search + location.hash);
+        }
+      }(window.location));
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div style="min-height: 100vh; background-color: #020617; display: flex; align-items: center; justify-content: center; font-family: sans-serif; color: #94a3b8;">
+        <div style="text-align: center;">
+          <div style="width: 36px; height: 36px; border: 3px solid #334155; border-top-color: #f59e0b; border-radius: 50%; margin: 0 auto 12px; animation: spin 0.8s linear infinite;"></div>
+          <div style="font-size: 14px; font-weight: 700; color: #f8fafc; letter-spacing: 0.5px;">Loading RenoLeads KL...</div>
+          <div style="font-size: 11px; margin-top: 4px; color: #64748b;">Kuala Lumpur Office Renovation Intelligence</div>
+        </div>
+      </div>
+      <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

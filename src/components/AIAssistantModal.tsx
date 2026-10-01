@@ -12,7 +12,6 @@ import {
   Building2,
   DollarSign
 } from 'lucide-react';
-import { GoogleGenAI } from '@google/genai';
 import { RenovationLead } from '../types';
 import { formatCurrency, formatNumber } from '../utils/scoring';
 
@@ -67,9 +66,10 @@ Highlight:
     }
 
     try {
-      // Check for Gemini API key
-      const apiKey = process.env.GEMINI_API_KEY;
+      // Check for Gemini API key safely without process.env crash
+      const apiKey = typeof process !== 'undefined' && process.env ? process.env.GEMINI_API_KEY : '';
       if (apiKey && apiKey !== 'MY_GEMINI_API_KEY') {
+        const { GoogleGenAI } = await import('@google/genai');
         const ai = new GoogleGenAI({ apiKey });
         const res = await ai.models.generateContent({
           model: 'gemini-2.5-flash',
