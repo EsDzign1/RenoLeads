@@ -1,0 +1,6 @@
+{
+  "name": "RenovatePulse KL - Kuala Lumpur Office Renovation Lead Intelligence & Scraper Automation",
+  "description": "Enterprise web scraping, DBKL permit tracking, lead quality scoring, and automated daily alerts for commercial office fit-outs and renovation sales in Kuala Lumpur, Malaysia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
